@@ -8,3 +8,7 @@ title: cFrost's Blog
 {% for post in site.posts %}
 * {{ post.date | date_to_string }} [{{ post.title }}]({{ site.baseurl }}{{ post.url }})
 {% endfor %}
+
+@2017 cFrost
+
+Published with [GitHub Pages](https://pages.github.com/)
