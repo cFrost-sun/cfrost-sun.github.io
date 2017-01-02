@@ -1,6 +1,6 @@
 ---
 layout: default
-title: cFrost's Blog
+title: cFrost',s Blog
 ---
 ## {{ page.title }}
 Latest Blogs
