@@ -42,7 +42,9 @@ server {
 }
 ```
 
-* 更多信息请参考[官方文档](https://letsencrypt.org/docs/)
-* HTTPS配置检测[https://wosign.ssllabs.com/](https://wosign.ssllabs.com/)
+上述配置中```ssl_dhparam /root/work/dhparam/dhparam.pem;```这一行请参考: [Guide to Deploying Diffie-Hellman for TLS](https://weakdh.org/sysadmin.html)
+
+* 更多信息请参考官方文档: [https://letsencrypt.org/docs](https://letsencrypt.org/docs)
+* HTTPS配置检测: [https://wosign.ssllabs.com](https://wosign.ssllabs.com)
 
 {{ page.date | date_to_string }}
