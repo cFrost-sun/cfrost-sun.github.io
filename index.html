@@ -6,6 +6,6 @@ title: cFrost's Blog
 <p>Latest Blogs<p>
 <ul class="post-ul">
     {% for post in site.posts %}
-    <li class="post-li"><span class="post-pubdate">{{ post.date | date_to_string }}</span>·<span class="post-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></span></li>
+    <li class="post-li"><span class="post-pubdate">{{ post.date | date_to_string }}</span><span class="post-split">·</span><span class="post-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></span></li>
     {% endfor %}
 </ul>
