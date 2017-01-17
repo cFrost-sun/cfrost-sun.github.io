@@ -4,99 +4,23 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="cFrost sun blog">
+    <meta name="author" content="cFrost sun">
+    <link rel="stylesheet" href="/assets/css/global.css">
     <title>{{ page.title }}</title>
-    <style>
-        body {
-            max-width: 1200px;
-            padding-left: 20px;
-            padding-right: 20px;
-            background-color: #eee;
-            margin: 0 auto 0 auto;
-            width: 1200px;
-            color: #333;
-            /*verdana, 'Helvetica Neue', Helvetica, Arial, */
-            font-family: "PingFang SC", "Microsoft YaHei", "微软雅黑", sans-serif;
-        }
-
-        body,
-        a,
-        a:hover,
-        a:visited {
-            color: #333;
-        }
-
-        footer,
-        footer a,
-        footer a:hover,
-        footer a:visited {
-            color: #666;
-        }
-
-        a,a:visited{
-            text-decoration:none;
-        }
-
-        a:hover {
-            text-decoration:underline;
-        }
-
-        footer {
-            padding-top: 12px;
-            height: 50px;
-        }
-
-        .post-li::before,.post-li::after {
-            display: table;
-            content: " ";
-            clear: both;
-        }
-
-        .post-ul {
-            -webkit-margin-before: 1em;
-            -webkit-margin-after: 1em;
-            -webkit-margin-start: 0px;
-            -webkit-margin-end: 0px;
-            -webkit-padding-start: 0px;
-            padding: 0;
-        }
-
-        .post-li {
-            display:block; 
-            height:30px;
-            line-height:30px;
-        }
-
-        .post-title {
-            display: block;
-            float:left;
-            padding: 0;
-        }
-
-        .post-split{
-            display: block;
-            float:left;
-            padding: 0 6px;
-        }
-
-        .post-pubdate{
-            display: block;
-            float:left;
-            width: 100px;
-            text-align: right;
-            /*padding-left: 60px;
-            font-size: 12px;*/
-            color: #666;
-            padding-left: 12px;
-        }
-    </style>
 </head>
 
 <body>
     {{ content }}
-    <hr>
-    <footer><div style="float:left">&copy;2017&nbsp;cFrost&nbsp;@&nbsp;<a href="https://eulerproject.io">eulerproject.io</a>&nbsp;<a id="icp" href="http://www.miitbeian.gov.cn" target="_Blank">粤ICP备15054669号</a></div><div style="float:right">Published with <a href="https://pages.github.com/">GitHub Pages</a></div></footer>
+    <footer>
+        <div class="container">
+            <hr>
+            <div class="row">
+                <div style="float:left">&copy;2017&nbsp;cFrost&nbsp;<a id="icp" href="http://www.miitbeian.gov.cn" target="_Blank">粤ICP备15054669号</a></div>
+                <div style="float:right">Powered by <a href="https://eulerproject.io">Euler Project</a> &amp; Published with <a href="https://pages.github.com/">GitHub Pages</a</div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

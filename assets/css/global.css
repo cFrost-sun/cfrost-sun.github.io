@@ -1,0 +1,95 @@
+
+body {
+    font-size: 14px;
+    max-width: 1200px;
+    min-width: 1200px;
+    margin: 0 auto 0 auto;
+    padding: 0 20px 20px 20px;
+    background-color: #eee;
+    color: #333;
+    /*verdana, 'Helvetica Neue', Helvetica, Arial, */
+    font-family: "PingFang SC", "Microsoft YaHei", "微软雅黑", sans-serif;
+}
+
+body,
+a,
+a:hover,
+a:visited {
+    color: #333;
+}
+
+footer,
+footer a,
+footer a:hover,
+footer a:visited {
+    color: #666;
+}
+
+a,a:visited{
+    text-decoration:none;
+}
+
+a:hover {
+    text-decoration:underline;
+}
+
+footer {
+    /*padding-top: 12px;*/
+    /*height: 50px;*/
+    font-size: 14px;
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #aaa;
+}
+.container::before,
+.container::after,
+.post-li::before,
+.post-li::after,
+.row::before,        
+.row::after {
+    display: table;
+    content: " ";
+    clear: both;
+}
+
+.post-ul {
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+    padding: 0;
+}
+
+.post-li {
+    display:block; 
+    height:30px;
+    line-height:30px;
+}
+
+.post-title {
+    display: block;
+    float:left;
+    padding: 0;
+}
+
+.post-split{
+    display: block;
+    float:left;
+    padding: 0 6px;
+}
+
+.post-pubdate{
+    display: block;
+    float:left;
+    width: 100px;
+    text-align: right;
+    /*padding-left: 60px;
+    font-size: 12px;*/
+    color: #666;
+    padding-left: 12px;
+}
