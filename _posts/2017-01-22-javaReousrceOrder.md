@@ -49,9 +49,9 @@ public class PropertySource {
 
 * configFile以'/'开头
     1. /WEB-INF/classes
-    2. 代码所在包的classpath
-    3. clazz所在包的classpath
+    2. 代码所在jar包的根目录
+    3. clazz所在jar包的根目录
 * configFile不以'/'开头
-    1. clazz所在包的classpath
+    * 只搜索clazz所在包
 
 {{ page.date | date_to_string }}
