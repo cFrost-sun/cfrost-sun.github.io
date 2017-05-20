@@ -1,23 +1,32 @@
 ---
 layout: default
-title: 设置Jackson序列化Date类型的时间格式,并支持多种反序列化时间格式
+title: 使用NGINX为自定义域名的GitHub Pages启用https
 ---
 ## {{ page.title }}
 
-Jackson的```ObjectMapper```在序列化```Date```类型的属性时，会转换为时间戳输出，这种处理方式是兼容性最好的，不会出现任何歧义，一般不建议修改，但是对于一些老系统不得不修改输出时间格式的情况，如果直接调用```ObjectMapper```的```setDateFormat```方法，会同时改变序列化和反序列化的时间格式，这样会导致```ObjectMapper```失去反序列化各种不同时间格式字符串的能力，因此我将```ObjectMapper```扩展，新增一个只修改序列化时间格式的方法
+GitHub Pages配置自定义域名后是不支持https的，可参考[为自定义域名的GitHub Pages添加SSL 完整方案](https://www.yicodes.com/2016/12/04/free-cloudflare-ssl-for-custom-domain/)的方案。
 
+但是我并不想注册Cloudflare，参考了一下它的实现原理，觉得用Nginx也可以完成，今晚试了一下，果然成功:
+
+1. 参考[使用Let’s Encrypt配置免费SSL证书](https://cfrost.net/2017/01/16/lets-encrypt.html)为你的Nignx服务器配置免费的SSL证书
+2. 在GitHub设置好自定义域名，但是自定义域名的DNS要解析到自己的Nginx服务器
+3. 在Nginx上添加GitHub的```upstream```
 ```
-public class MyObjectMapper extends ObjectMapper {
-
-    private static final long serialVersionUID = -2795479277489658982L;
-
-    public MyObjectMapper setSerializationDateFormat(DateFormat dateFormat) {
-        _serializationConfig = _serializationConfig.with(dateFormat);
-        return this;
-    }
+upstream github-pages {
+    server 192.30.252.153:443;
+    server 192.30.252.154:443;
 }
 ```
-
-这样就可以自定义序列化时间格式，但不会影响反序列化对各种时间格式的支持。
+4. Nginx的location作如下配置，注意```eulerproject.io```换成自己的域名
+```
+location / {
+    proxy_pass    http://github-pages;
+    proxy_set_header Host eulerproject.io;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto  $scheme;
+}
+```
+5. 在浏览器输入自己的域名监测是否成功。
 
 {{ page.date | date_to_string }}
