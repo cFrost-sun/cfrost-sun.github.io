@@ -6,7 +6,7 @@ title: Java Class.getResource(name)读取位置优先级
 
 先上一个读取类代码:
 
-```
+```java
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
