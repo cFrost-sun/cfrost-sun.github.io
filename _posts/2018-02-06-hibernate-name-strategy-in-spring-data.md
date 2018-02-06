@@ -12,6 +12,16 @@ title: Spring Data JPA的表名、列名映射策略问题
 
 一个是Hibernate的，一个是Spring的，其中Spring的那个实现了xxxYyy自动映射为xxx_yyy这样的功能，但是会讲所有生成的名称转换为小写放到SQL里，而Hibernate那个就不会，换用```PhysicalNamingStrategyStandardImpl```就好了。
 
-
+```yml
+spring:
+  jpa:
+    database: mysql
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+```
 
 {{ page.date | date_to_string }}
