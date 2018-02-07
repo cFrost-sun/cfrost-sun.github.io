@@ -1,0 +1,39 @@
+---
+layout: default
+title: 【持续更新】docker常用命令
+---
+## {{ page.title }}
+
+### 新建用户
+
+```shell
+CREATE USER 'xxxx'@'localhost' IDENTIFIED BY 'xxxxx';
+```
+
+### 删除用户
+
+```shell
+DROP USER xxxx;
+DROP USER 'xxxx'@'localhost';
+```
+
+### 用户赋权
+
+```shell
+GRANT ALL PRIVILEGES ON *.* TO 'user'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION;
+```
+
+### 刷新权限
+
+```shell
+FLUSH PRIVILEGES;
+```
+
+### 克隆数据库
+
+```shell
+mysqldump -u root -p lhen > lhen-release.sql
+mysql -u 用户名 -p --database 数据库名 < D:abc.sql
+```
+
+{{ page.date | date_to_string }}
