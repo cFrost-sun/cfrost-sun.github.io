@@ -49,8 +49,7 @@ public class PropertySource {
 
 * configFile以'/'开头
     1. /WEB-INF/classes
-    2. 代码所在jar包的根目录
-    3. clazz所在jar包的根目录
+    2. 所有jar包的根目录, 以第一个找到的为准
 * configFile不以'/'开头
     * 只搜索clazz所在包
 
