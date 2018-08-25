@@ -14,13 +14,13 @@ git clone https://github.com/certbot/certbot
 进入certbot目录，运行
 
 ```
-./letsencrypt-auto certonly --standalone --email admin@eulerproject.io -d eulerproject.io -d www.eulerproject.io
+./certbot-auto certonly --standalone --email admin@eulerproject.io -d eulerproject.io -d www.eulerproject.io
 ```
 
 其中eulerproject.io应替换为你的域名，稍作等待，一切会自动运行，成功之后会在```/etc/letsencrypt/```目录生成一系列证书文件，我们只需要到```/etc/letsencrypt/live/yourdomain```目录下，里面有最新版证书文件的link。证书有效期为90天，到期后可运行下面的命令续期：
 
 ```
-./letsencrypt-auto certonly --renew-by-default --email admin@eulerproject.io -d eulerproject.io -d www.eulerproject.io
+./certbot-auto renew
 ```
 
 下面以nginx为例说明如何配置证书
