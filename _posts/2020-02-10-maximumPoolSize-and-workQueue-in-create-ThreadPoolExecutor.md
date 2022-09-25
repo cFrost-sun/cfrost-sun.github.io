@@ -67,7 +67,7 @@ ThreadPoolExecutor executor = new ThreadPoolExecutor(2, 5,
                 new LinkedBlockingQueue<Runnable>(5));
 ```
 
-当线程池中已经有两个正在执行的线程，再添加第三个线程时，线程池不会新建一个非核心任务来执行第三个线程，而是会把第三个线程放到```LinkedBlockingQueue```中等待前两个线程执行完成再作为核心任务来执行。
+当线程池中已经有两个正在执行的线程，再添加第三个线程时，线程池不会新建一个非核心任务来执行第三个线程，而是会把第三个线程放到```LinkedBlockingQueue```中成再执行。
 
 为什么会是这样呢？我们来看一下```ThreadPoolExecutor```的```execute```方法：
 
@@ -115,14 +115,14 @@ public void execute(Runnable command) {
             return;
         c = ctl.get();
     }
-    if (isRunning(c) && workQueue.offer(command)) { // 反之，尝试向workQueue中添加任务，如果失败再作为非核心任务执行
+    if (isRunning(c) && workQueue.offer(command)) { // 反之，尝试向workQueue中添加任务
         int recheck = ctl.get();
-        if (! isRunning(recheck) && remove(command))
+        if (! isRunning(recheck) && remove(command)) // 二次检查，如果此时线程池被关闭则回滚排队并拒绝
             reject(command);
-        else if (workerCountOf(recheck) == 0)
+        else if (workerCountOf(recheck) == 0) // 如果向队列成功添加任务之后，Worker数为0则新建一个空Worker来从队列中顺序获取任务执行
             addWorker(null, false);
     }
-    else if (!addWorker(command, false))
+    else if (!addWorker(command, false)) // 如果上面都失败，最终还是会通过强行添加一个Worker的方式来再次确认能否提交成功
         reject(command);
 }
 ```
